@@ -10,8 +10,8 @@ public class Test {
 		
 		// create test example
 		PersonalCodeExample testExample = new PersonalCodeExample(
-				2,
-				2,
+				1,
+				1,
 				"Test Code Example",
 				"This example is for testing purposes only.",
 				"Team High Fives go!!!",
