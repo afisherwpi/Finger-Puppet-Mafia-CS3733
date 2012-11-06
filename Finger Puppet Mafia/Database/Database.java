@@ -34,7 +34,7 @@ public class Database {
 	public ObjectSet<PersonalCodeExample> getExamplesByFieldValue(String field, Object value){
 		Query query = db.query(); // construct SODA query - SODA queries are the fastest in db4o
 		query.constrain(PersonalCodeExample.class); // tell the query we're looking for a code example
-		query.descend(field).constrain(value); // tell the query we want the code example with user id 1
+		query.descend(field).constrain(value); // tell the query to search the code example's for a (field) equivalent to (value) (example: ...for a Name equivalent to John)
 		return query.execute(); // get the results of the query
 	}
 	
