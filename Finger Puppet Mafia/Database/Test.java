@@ -10,8 +10,8 @@ public class Test {
 		
 		// create test example
 		PersonalCodeExample testExample = new PersonalCodeExample(
-				1,
-				1,
+				2,
+				2,
 				"Test Code Example",
 				"This example is for testing purposes only.",
 				"Team High Fives go!!!",
@@ -29,13 +29,13 @@ public class Test {
 		
 		listResult(userOneExamples); // list the examples from the query
 		
-		db.delete(testExample); // delete our test example
+		//db.delete(testExample); // delete our test example
 		
 		userOneExamples = db.getExamplesByFieldValue("userID",1); // get all examples belonging to userID 1, should be empty now
 		
 		listResult(userOneExamples); // list new query results
 		
-		db.deleteDatabase(); // delete database
+		//db.deleteDatabase(); // delete database
 	}
 	
 	// listResut: List<?> -> void
