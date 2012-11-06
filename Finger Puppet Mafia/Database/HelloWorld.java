@@ -1,4 +1,4 @@
-package helloWorld;
+package Database;
 
 import java.applet.Applet;
 import java.awt.HeadlessException;
