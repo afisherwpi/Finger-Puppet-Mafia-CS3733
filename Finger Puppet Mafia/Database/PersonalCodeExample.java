@@ -1,13 +1,12 @@
 package Database;
 import java.util.Date;
-import java.util.ArrayList;
 
 /** PersonalCodeExample: The standard class for a code example.
  * @author Trevor
  */
 public class PersonalCodeExample {
 	private long ID; // unique identifier of code example
-	private long user_ID; // unique identifier of the user this example belongs to
+	private long userID; // unique identifier of the user this example belongs to
 	private String title;
 	private String description;
 	private String code;
@@ -29,7 +28,7 @@ public class PersonalCodeExample {
 			String language,
 			boolean isDeleted){
 		this.ID = ID;
-		this.user_ID = user_ID;
+		this.userID = user_ID;
 		this.title = title;
 		this.description = description;
 		this.code = code;
@@ -58,14 +57,14 @@ public class PersonalCodeExample {
 	 * @return the user_ID
 	 */
 	public long getUser_ID() {
-		return user_ID;
+		return userID;
 	}
 
 	/**
 	 * @param user_ID the user_ID to set
 	 */
 	public void setUser_ID(long user_ID) {
-		this.user_ID = user_ID;
+		this.userID = user_ID;
 	}
 
 	/**

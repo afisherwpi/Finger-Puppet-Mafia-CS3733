@@ -57,13 +57,13 @@ public class MainWindow extends Applet {
 		
 		listResult(userOneExamples); // list the examples from the query
 		
-		db.delete(testExample); // delete our test example
+		//db.delete(testExample); // delete our test example
 		
 		userOneExamples = db.getExamplesByFieldValue("userID",1); // get all examples belonging to userID 1, should be empty now
 		
 		listResult(userOneExamples); // list new query results
 		
-		db.deleteDatabase(); // delete database
+		//db.deleteDatabase(); // delete database
 	}
 	
 	public MainWindow() throws HeadlessException {
