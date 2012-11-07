@@ -9,6 +9,7 @@ public class Category {
 	 */
 	
 	private long ID;
+
 	private boolean is_public;
 	private String title;
 	private long user_ID;
@@ -23,6 +24,10 @@ public class Category {
 		this.examples = new ArrayList<CodeExample>();
 	}
 
+	public ArrayList<CodeExample> getExamples() {
+		return examples;
+	}
+	
 	/**
 	 * @return the ID
 	 */
