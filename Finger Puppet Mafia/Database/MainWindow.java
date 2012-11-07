@@ -35,7 +35,7 @@ public class MainWindow extends Applet {
 	JPanel RightPane;
 	private JTree tree;
 	private JButton btnNewButton;
-	private JTextField txtSearch;
+	private JTextField txtSearch1;
 	
 
 	
@@ -108,10 +108,10 @@ public class MainWindow extends Applet {
 		btnNewButton = new JButton("Add?");
 		LeftPane.add(btnNewButton, BorderLayout.SOUTH);
 		
-		txtSearch = new JTextField();
-		txtSearch.setText("Search...");
-		LeftPane.add(txtSearch, BorderLayout.NORTH);
-		txtSearch.setColumns(10);
+		txtSearch1 = new JTextField();
+		txtSearch1.setText("Search...");
+		LeftPane.add(txtSearch1, BorderLayout.NORTH);
+		txtSearch1.setColumns(10);
 		splitPane.setContinuousLayout(true);
 		
 
