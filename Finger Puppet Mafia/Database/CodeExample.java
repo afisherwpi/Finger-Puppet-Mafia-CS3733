@@ -29,7 +29,8 @@ public class CodeExample {
 				Date dateModified,
 				boolean isPublic,
 				String language,
-				boolean isDeleted){
+				boolean isDeleted,
+				List<Category> associatedCategories){
 			this.ID = ID;
 			this.userID = user_ID;
 			this.title = title;
@@ -40,6 +41,7 @@ public class CodeExample {
 			this.isPublic = isPublic;
 			this.language = language;
 			this.isDeleted = isDeleted;
+			this.associatedCategories = associatedCategories;
 		}
 
 		CodeExample() {
@@ -54,6 +56,7 @@ public class CodeExample {
 			this.isPublic = false;
 			this.language = "";
 			this.isDeleted = false;
+			this.associatedCategories = null;
 		}
 		
 		/**

@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.HeadlessException;
 import java.awt.TextField;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,6 +56,10 @@ public class MainWindow extends Applet {
 	public void test() {
 		Database db = new Database("testdb");
 		
+		// List of categories
+		List<Category> categories = new ArrayList<Category>();
+		categories.add(new Category(false, "TestCategory", 1));
+		
 		// create test example
 		CodeExample testExample = new CodeExample(
 				1,
@@ -66,7 +71,8 @@ public class MainWindow extends Applet {
 				new Date(),
 				false,
 				"Plain Text",
-				false
+				false,
+				categories
 				);
 		
 		db.store(testExample); // store test example in database

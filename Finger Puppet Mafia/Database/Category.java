@@ -14,13 +14,9 @@ public class Category {
 	private long user_ID;
 	private List<CodeExample> associatedExamples; // all examples under Category
 	
-	Category(long ID,
-			long parent_ID,
-			boolean is_public,
+	Category(boolean is_public,
 			String category,
 			long user_ID) {
-		this.ID = ID;
-		this.parent_ID = parent_ID;
 		this.is_public = is_public;
 		this.category = category;
 		this.user_ID = user_ID;

@@ -1,5 +1,8 @@
 package Database;
 import com.db4o.ObjectSet;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -7,6 +10,10 @@ public class Test {
 	
 	public static void main(String [] args){
 		Database db = new Database("testdb");
+		
+		// List of categories
+		List<Category> categories = new ArrayList<Category>();
+		categories.add(new Category(false, "TestCategory", 1));
 		
 		// create test example
 		CodeExample testExample = new CodeExample(
@@ -19,7 +26,8 @@ public class Test {
 				new Date(),
 				false,
 				"Plain Text",
-				false
+				false,
+				categories
 				);
 		
 		db.store(testExample); // store test example in database
