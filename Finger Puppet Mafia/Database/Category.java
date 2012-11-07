@@ -12,6 +12,7 @@ public class Category {
 	private boolean is_public;
 	private String category;
 	private long user_ID;
+	private List<CodeExample> associatedExamples; // all examples under Category
 	
 	Category(long ID,
 			long parent_ID,

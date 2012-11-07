@@ -1,6 +1,7 @@
 package Database;
 
 import java.util.Date;
+import java.util.List;
 
 /** CodeExample: The standard class for a code example.
  * @author Trevor
@@ -16,6 +17,7 @@ public class CodeExample {
 		private boolean isPublic;
 		private String language; // Should the language be a string?
 		private boolean isDeleted; // Perhaps the deleted examples should go to a separate database?
+		private List<Category> associatedCategories; // All categories that CodeExample is under
 		
 		CodeExample(
 				long ID,
