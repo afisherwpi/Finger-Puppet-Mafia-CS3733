@@ -105,9 +105,13 @@ public class Database {
 		// Retrieve Category object by String name
 		List<Category> category = getCategories(nameParam);
 		
-		// If a match was found, delete it
+		// If a match was found, delete it and remove it from its "examples" categories
 		// otherwise print notification
 		if (category.size() > 0) {
+			
+			for(int i = 0; i < category.get(0).getExamples().size() ; i++){
+				category.get(0).getExamples().get(i).removeCategory(category.get(0)); //this just says that for each CodeExample in the Category's "examples" field, remove this Category from that CodeExample's "categories" field
+				}
 			db.delete(category.get(0));
 			System.out.println(name+" deleted."); 
 			return true;
@@ -248,5 +252,9 @@ public class Database {
 	
 	public void deleteDatabase(){
 		new File(this.dbName).delete();
+	}
+	
+	public void closeDatabase(){
+		db.close();
 	}
 }
