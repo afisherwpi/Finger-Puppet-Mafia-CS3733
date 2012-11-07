@@ -2,7 +2,7 @@
 package Database;
 
 import Database.Database;
-import Database.PersonalCodeExample;
+import Database.CodeExample;
 
 import com.db4o.ObjectSet;
 import java.applet.Applet;
@@ -56,7 +56,7 @@ public class MainWindow extends Applet {
 		Database db = new Database("testdb");
 		
 		// create test example
-		PersonalCodeExample testExample = new PersonalCodeExample(
+		CodeExample testExample = new CodeExample(
 				1,
 				1,
 				"Test Code Example",
@@ -72,7 +72,7 @@ public class MainWindow extends Applet {
 		db.store(testExample); // store test example in database
 		System.out.println("Stored " + testExample); // print out result to make sure it was properly stored
 		
-		ObjectSet<PersonalCodeExample> userOneExamples = db.getExamplesByFieldValue("userID",1); // get all examples belonging to userID 1
+		ObjectSet<CodeExample> userOneExamples = db.getExamplesByFieldValue("userID",1); // get all examples belonging to userID 1
 		
 		listResult(userOneExamples); // list the examples from the query
 		

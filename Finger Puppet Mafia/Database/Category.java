@@ -1,5 +1,7 @@
 package Database;
 
+import java.util.List;
+
 public class Category {
 	/** 
 	 * @author Dale
