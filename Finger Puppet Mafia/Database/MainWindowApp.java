@@ -3,11 +3,14 @@ package Database;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -221,7 +224,7 @@ public class MainWindowApp extends JFrame {
 		
 		lblAddInstruction = new JLabel("Fill out the following feilds and click save inorder to add an entry to your Programmers Examples Notebook.");
 		lblAddTitle = new JLabel("Title:");
-		lblAddKeyWords = new JLabel("Key Word:");
+		lblAddKeyWords = new JLabel("Key Words:");
 		lblAddProgrammingLanguage = new JLabel("Language:");
 		lblAddCode = new JLabel("Code:");
 		lblAddDependencies = new JLabel("Dependencies:");
@@ -252,6 +255,46 @@ public class MainWindowApp extends JFrame {
 		addPublicPane.add(cbAddPublic);
 		addButtonPane.add(btnAddCancel);
 		addButtonPane.add(btnAddSave);
+		
+		ActionListener keyWordActionListener = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int totalComponents = addPane.getComponentCount();
+				JPanel anotherAddKeyWordsPane = new JPanel();
+				final JLabel removeLabel = new JLabel("remove");
+				removeLabel.setForeground(Color.blue);
+				removeLabel.addMouseListener(new MouseListener() {
+					@Override
+					public void mouseClicked(MouseEvent arg0) {
+						addPane.remove(removeLabel.getParent());
+						addPane.revalidate();
+					}
+					@Override
+					public void mouseEntered(MouseEvent arg0) {
+						removeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+					}
+					@Override
+					public void mouseExited(MouseEvent arg0) {
+						removeLabel.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+					}
+					@Override
+					public void mousePressed(MouseEvent arg0) {
+					}
+					@Override
+					public void mouseReleased(MouseEvent arg0) {
+					}
+				});
+				JLabel tfAnotherAddKeyWords = new JLabel(tfAddKeyWords.getText());
+				tfAddKeyWords.setText("");
+				anotherAddKeyWordsPane.setLayout(new GridLayout(0, 2));
+				anotherAddKeyWordsPane.add(removeLabel);
+				anotherAddKeyWordsPane.add(tfAnotherAddKeyWords);
+				addPane.add(anotherAddKeyWordsPane, totalComponents - 5);
+				addPane.revalidate();
+			}
+		};
+		
+		tfAddKeyWords.addActionListener(keyWordActionListener);
 		
 		btnAddCancel.addActionListener(new ActionListener() {
 			@Override
