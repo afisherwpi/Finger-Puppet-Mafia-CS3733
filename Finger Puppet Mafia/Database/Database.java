@@ -146,7 +146,7 @@ public class Database {
 	 */
 	public List<CodeExample> getCategoryExamples(String categoryName) {
 		return getCategoryObject(categoryName).getExamples();
-	}
+	} 
 	
 	/**getCategoryObject - Retrieve a Category object by its String name
 	 * 

@@ -26,7 +26,7 @@ public class Category {
 
 	public ArrayList<CodeExample> getExamples() {
 		return examples;
-	}
+	} 
 	
 	/**
 	 * @return the ID
