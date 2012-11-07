@@ -1,5 +1,6 @@
 package Database;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Category {
@@ -20,6 +21,15 @@ public class Category {
 		this.is_public = is_public;
 		this.category = category;
 		this.user_ID = user_ID;
+	}
+	
+	Category() {
+		this.ID = 0;
+		this.parent_ID = 0;
+		this.is_public = false;
+		this.category = "";
+		this.user_ID = 0;
+		associatedExamples = new ArrayList<CodeExample>();
 	}
 
 	/**
