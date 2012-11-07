@@ -1,4 +1,4 @@
-//Created By Michael
+//Created By Michael, Anthony, Stephen, Hannah Montana
 package Database;
 
 import java.awt.BorderLayout;
@@ -71,7 +71,7 @@ public class MainWindowApp extends JFrame {
 	
 	private JTextField tfAddTitle;
 	private JTextField tfAddKeyWords;
-	private JComboBox<String> comboAddProgrammingLanguage;
+	private JComboBox comboAddProgrammingLanguage;
 	private JTextArea taAddCode;
 	private JTextField tfAddDependencies;
 	private JCheckBox cbAddPublic;
@@ -232,7 +232,7 @@ public class MainWindowApp extends JFrame {
 		
 		tfAddTitle = new JTextField();
 		tfAddKeyWords = new JTextField();
-		comboAddProgrammingLanguage = new JComboBox<String>(possibleProgrammingLanguages);
+		comboAddProgrammingLanguage = new JComboBox(possibleProgrammingLanguages);
 		taAddCode = new JTextArea();
 		tfAddDependencies = new JTextField();
 		cbAddPublic = new JCheckBox();
