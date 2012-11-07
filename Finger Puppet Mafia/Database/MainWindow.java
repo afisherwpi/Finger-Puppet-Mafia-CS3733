@@ -60,7 +60,7 @@ public class MainWindow extends Applet {
 				1,
 				1,
 				"Test Code Example",
-				"This example is for testing purposes only.",
+				"This example is for testing purposes only. Test!",
 				"Team High Fives go!!!",
 				new Date(), // a new Date object will always contain the latest time information
 				new Date(),
