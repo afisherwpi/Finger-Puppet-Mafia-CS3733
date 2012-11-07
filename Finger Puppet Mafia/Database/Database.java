@@ -16,7 +16,7 @@ public class Database {
 	private ObjectContainer db;
 	EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
 	
-	Database(String name){
+	public Database(String name){
 		this.dbName = name;
 		config.common().objectClass(Category.class).cascadeOnUpdate(true);
 		// open database stored in file "testdb" and create one if it's not there
