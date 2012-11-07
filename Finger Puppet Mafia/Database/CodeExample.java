@@ -42,6 +42,20 @@ public class CodeExample {
 			this.isDeleted = isDeleted;
 		}
 
+		CodeExample() {
+			this.ID = 0;
+			this.userID = 0;
+			this.title = "";
+			this.description = "";
+			this.code = "";
+			this.dateCreated = null;
+			this.dateModified = null;
+			// all code examples are private by default
+			this.isPublic = false;
+			this.language = "";
+			this.isDeleted = false;
+		}
+		
 		/**
 		 * @return the iD
 		 */
@@ -154,6 +168,14 @@ public class CodeExample {
 			this.isPublic = isPublic;
 		}
 
+		public void makePublic() {
+			this.isPublic = true;
+		}
+		
+		public void makePrivate() {
+			this.isPublic = false;
+		}
+		
 		/**
 		 * @return the language
 		 */
