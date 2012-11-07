@@ -187,6 +187,9 @@ public class CodeExample {
 		}
 		
 		/**
+		 * Adds the specified category to the list of categories, then
+		 * adds itself to the category's list of examples.
+		 *
 		 * @param category the category to add this example to
 		 */
 		public void addCategory(Category category){
