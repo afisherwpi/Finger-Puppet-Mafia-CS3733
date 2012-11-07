@@ -249,4 +249,8 @@ public class Database {
 	public void deleteDatabase(){
 		new File(this.dbName).delete();
 	}
+	
+	public void closeDatabase(){
+		db.close();
+	}
 }

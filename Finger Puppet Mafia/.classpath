@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="test_jars/easymock-3.1.jar"/>
 	<classpathentry kind="lib" path="test_jars/junit-4.11-beta-1.jar"/>
 	<classpathentry kind="lib" path="test_jars/objenesis-1.2.jar"/>
+	<classpathentry kind="lib" path="test_jars/easymockclassextension-3.1.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
