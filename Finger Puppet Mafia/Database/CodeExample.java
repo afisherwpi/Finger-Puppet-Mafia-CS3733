@@ -43,6 +43,13 @@ public class CodeExample {
 			this.language = language;
 			this.isDeleted = isDeleted;
 			this.categories = categories;
+			this.linkWithCategories(categories);
+		}
+		
+		private void linkWithCategories(List<Category> categories) {
+			for (int i = 0; i < categories.size(); i++) {
+				categories.get(i).addExampleToCat(this);
+			}
 		}
 		
 		/**

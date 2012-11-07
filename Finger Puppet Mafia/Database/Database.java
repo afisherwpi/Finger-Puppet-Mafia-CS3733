@@ -3,6 +3,7 @@ package Database;
 import com.db4o.Db4oEmbedded;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
+import com.db4o.config.EmbeddedConfiguration;
 import com.db4o.query.Query;
 import java.io.File;
 import java.util.ArrayList;
@@ -13,11 +14,13 @@ import com.db4o.query.Predicate;
 public class Database {
 	private String dbName;
 	private ObjectContainer db;
+	EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
 	
 	Database(String name){
 		this.dbName = name;
+		config.common().objectClass(Category.class).cascadeOnUpdate(true);
 		// open database stored in file "testdb" and create one if it's not there
-		this.db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), name);
+		this.db = Db4oEmbedded.openFile(config, name);
 	}
 	
 	// store: Object -> void

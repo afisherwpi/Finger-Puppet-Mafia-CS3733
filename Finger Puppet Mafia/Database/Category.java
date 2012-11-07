@@ -24,6 +24,10 @@ public class Category {
 		this.examples = new ArrayList<CodeExample>();
 	}
 
+	public void addExampleToCat(CodeExample example) {
+		examples.add(example);
+	}
+	
 	public ArrayList<CodeExample> getExamples() {
 		return examples;
 	} 
