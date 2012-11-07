@@ -9,11 +9,10 @@ public class Category {
 	 */
 	
 	private long ID;
-	private long parent_ID;
 	private boolean is_public;
 	private String title;
 	private long user_ID;
-	private List<CodeExample> examples; // all examples under Category
+	private ArrayList<CodeExample> examples; // all examples under Category
 	
 	Category(boolean is_public,
 			String name,
@@ -38,19 +37,6 @@ public class Category {
 		this.ID = ID;
 	}
 
-	/**
-	 * @return the parent_ID
-	 */
-	public long getParent_ID() {
-		return parent_ID;
-	}
-
-	/**
-	 * @param parent_ID the parent_ID to set
-	 */
-	public void setParent_ID(long parent_ID) {
-		this.parent_ID = parent_ID;
-	}
 
 	/**
 	 * @return the is_public
