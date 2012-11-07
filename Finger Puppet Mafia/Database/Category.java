@@ -1,7 +1,7 @@
 package Database;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Category {
 	/** 
@@ -11,39 +11,31 @@ public class Category {
 	private long ID;
 	private long parent_ID;
 	private boolean is_public;
-	private String category;
+	private String title;
 	private long user_ID;
-	private List<CodeExample> associatedExamples; // all examples under Category
+	private List<CodeExample> examples; // all examples under Category
 	
 	Category(boolean is_public,
-			String category,
+			String name,
 			long user_ID) {
 		this.is_public = is_public;
-		this.category = category;
+		this.title = name;
 		this.user_ID = user_ID;
-	}
-	
-	Category() {
-		this.ID = 0;
-		this.parent_ID = 0;
-		this.is_public = false;
-		this.category = "";
-		this.user_ID = 0;
-		associatedExamples = new ArrayList<CodeExample>();
+		this.examples = new ArrayList<CodeExample>();
 	}
 
 	/**
-	 * @return the iD
+	 * @return the ID
 	 */
 	public long getID() {
 		return ID;
 	}
 
 	/**
-	 * @param iD the iD to set
+	 * @param ID the ID to set
 	 */
-	public void setID(long iD) {
-		ID = iD;
+	public void setID(long ID) {
+		this.ID = ID;
 	}
 
 	/**
@@ -75,17 +67,17 @@ public class Category {
 	}
 
 	/**
-	 * @return the category
+	 * @return the name
 	 */
-	public String getCategory() {
-		return category;
+	public String getName() {
+		return title;
 	}
 
 	/**
-	 * @param category the category to set
+	 * @param name the name to set
 	 */
-	public void setCategory(String category) {
-		this.category = category;
+	public void setName(String name) {
+		this.title = name;
 	}
 
 	/**
@@ -101,5 +93,12 @@ public class Category {
 	public void setUser_ID(long user_ID) {
 		this.user_ID = user_ID;
 	}
-
+	
+	
+	/**
+	 * @param example the example to be added to this category
+	 */
+	public void addExample(CodeExample example){
+		this.examples.add(example);
+	}
 }

@@ -2,6 +2,7 @@ package Database;
 
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 
 /** CodeExample: The standard class for a code example.
  * @author Trevor
@@ -17,7 +18,7 @@ public class CodeExample {
 		private boolean isPublic;
 		private String language; // Should the language be a string?
 		private boolean isDeleted; // Perhaps the deleted examples should go to a separate database?
-		private List<Category> associatedCategories; // All categories that CodeExample is under
+		private List<Category> categories; // All categories that CodeExample is under
 		
 		CodeExample(
 				long ID,
@@ -30,7 +31,7 @@ public class CodeExample {
 				boolean isPublic,
 				String language,
 				boolean isDeleted,
-				List<Category> associatedCategories){
+				List<Category> categories){
 			this.ID = ID;
 			this.userID = user_ID;
 			this.title = title;
@@ -41,22 +42,7 @@ public class CodeExample {
 			this.isPublic = isPublic;
 			this.language = language;
 			this.isDeleted = isDeleted;
-			this.associatedCategories = associatedCategories;
-		}
-
-		CodeExample() {
-			this.ID = 0;
-			this.userID = 0;
-			this.title = "";
-			this.description = "";
-			this.code = "";
-			this.dateCreated = null;
-			this.dateModified = null;
-			// all code examples are private by default
-			this.isPublic = false;
-			this.language = "";
-			this.isDeleted = false;
-			this.associatedCategories = null;
+			this.categories = categories;
 		}
 		
 		/**
@@ -164,13 +150,6 @@ public class CodeExample {
 			return isPublic;
 		}
 
-		/**
-		 * @param isPublic the isPublic to set
-		 */
-		public void setPublic(boolean isPublic) {
-			this.isPublic = isPublic;
-		}
-
 		public void makePublic() {
 			this.isPublic = true;
 		}
@@ -207,4 +186,11 @@ public class CodeExample {
 			this.isDeleted = isDeleted;
 		}
 		
+		/**
+		 * @param category the category to add this example to
+		 */
+		public void addCategory(Category category){
+			this.categories.add(category);
+			category.addExample(this);
+		}
 }
