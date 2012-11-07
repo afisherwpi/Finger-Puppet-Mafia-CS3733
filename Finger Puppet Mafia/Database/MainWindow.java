@@ -6,20 +6,39 @@ import Database.PersonalCodeExample;
 
 import com.db4o.ObjectSet;
 import java.applet.Applet;
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.HeadlessException;
+import java.awt.TextField;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.EmptyBorder;
+
 import java.util.Date;
+import javax.swing.JInternalFrame;
+import javax.swing.JTree;
 
 
 public class MainWindow extends Applet {
 	private JTextField txtHello;
 	private String[] ComboList = new String[] {"List of Items"};
+	JPanel LeftPane;
+	JPanel RightPane;
+	private JTree tree;
+	private JButton btnNewButton;
+	private JTextField txtSearch;
+	
+
+	
+	
 	
 	static <T> T[] append(T[] arr, T element) {
 	    final int N = arr.length;
@@ -67,24 +86,32 @@ public class MainWindow extends Applet {
 	}
 	
 	public MainWindow() throws HeadlessException {
-		test();
-		ComboList = append(ComboList, "4");
+		setLayout(new BorderLayout(0, 0));
 		
+		RightPane = new JPanel();
+		LeftPane = new JPanel();
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,LeftPane,RightPane);
+		add(splitPane, BorderLayout.CENTER);
+		RightPane.setLayout(new BorderLayout(0, 0));
+		LeftPane.setLayout(new BorderLayout(0, 0));
 		
+		tree = new JTree();
+		tree.setEditable(true);
+		LeftPane.add(tree, BorderLayout.CENTER);
 		
+		btnNewButton = new JButton("Add?");
+		LeftPane.add(btnNewButton, BorderLayout.SOUTH);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(ComboList));
-		add(comboBox);
+		txtSearch = new JTextField();
+		txtSearch.setText("Search...");
+		LeftPane.add(txtSearch, BorderLayout.NORTH);
+		txtSearch.setColumns(10);
+		splitPane.setContinuousLayout(true);
 		
-		JPanel panel = new JPanel();
-		add(panel);
+
 		
-		txtHello = new JTextField();
-		txtHello.setText("Hello?");
-		panel.add(txtHello);
-		txtHello.setColumns(10);
-		// TODO Auto-generated constructor stub
+
+
 	}
 
 }
