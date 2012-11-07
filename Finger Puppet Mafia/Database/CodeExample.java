@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
-/** CodeExample: The standard class for a code example.
+/** CodeExample: The standard class for a code example
  * @author Trevor
  */
 public class CodeExample {
