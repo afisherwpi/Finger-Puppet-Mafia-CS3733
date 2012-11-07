@@ -23,10 +23,6 @@ public class Category {
 		this.user_ID = user_ID;
 		this.examples = new ArrayList<CodeExample>();
 	}
-
-	public void addExampleToCat(CodeExample example) {
-		examples.add(example);
-	}
 	
 	public ArrayList<CodeExample> getExamples() {
 		return examples;

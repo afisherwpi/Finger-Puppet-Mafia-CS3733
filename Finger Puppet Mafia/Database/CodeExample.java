@@ -42,15 +42,20 @@ public class CodeExample {
 			this.isPublic = isPublic;
 			this.language = language;
 			this.isDeleted = isDeleted;
-			this.categories = categories;
-			this.linkWithCategories(categories);
-		}
-		
-		private void linkWithCategories(List<Category> categories) {
-			for (int i = 0; i < categories.size(); i++) {
-				categories.get(i).addExampleToCat(this);
+			for(int i = 0 ; i < categories.size() ; i++) {
+				addCategory(categories.get(i));
 			}
 		}
+		
+		/**
+		 * Removes a category from this codeexample's categories list
+		 * @param name category to remove
+		 * @return whether the remove was successful or not
+		 */
+		public boolean removeCategory(Category name) {
+			return categories.remove(name);
+		}
+		
 		
 		/**
 		 * @return the iD

@@ -105,9 +105,15 @@ public class Database {
 		// Retrieve Category object by String name
 		List<Category> category = getCategories(nameParam);
 		
-		// If a match was found, delete it
+		// If a match was found, delete it and remove the category from categories of all CodeExamples that use it
 		// otherwise print notification
 		if (category.size() > 0) {
+			
+			List<CodeExample> codeInCategory = category.get(0).getExamples();
+			for (int i = 0 ; i < codeInCategory.size() ; i++) {
+				codeInCategory.get(i).removeCategory(category.get(0));
+			}
+			
 			db.delete(category.get(0));
 			System.out.println(name+" deleted."); 
 			return true;
