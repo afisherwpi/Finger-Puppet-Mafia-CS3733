@@ -89,6 +89,13 @@ public class Database {
 	 * @author John Pham
 	 */
 	public boolean addCategory(String name, String description, boolean isPublic) {
+		Query query = db.query(); // construct SODA query - SODA queries are the fastest in db4o
+		query.constrain(Category.class); // tell the query we're looking for a category
+		query.descend("title").constrain(name); // tell the query to search the categories for a title equivalent to name
+		if (query.execute().size() > 0) { //if the database contains a category already with title name
+			System.out.println("The category you are trying to add ("+name+") is already in the database.");
+			return false;
+		}
 		// Construct a Category object
 		Category toAdd = new Category(isPublic, name, description, 1);
 		// store the Category object
@@ -103,15 +110,21 @@ public class Database {
 	 * @return true if the deletion was successful
 	 */
 	public boolean deleteCategory(String name) {
+		
 		// Store the String name into a list for passing to getCategories()
 		List<String> nameParam = new ArrayList<String>();
 		nameParam.add(name);
 		// Retrieve Category object by String name
 		List<Category> category = getCategories(nameParam);
-		
-		// If a match was found, delete it
+
+		// If a match was found, delete it and remove it from each code's categories field
 		// otherwise print notification
 		if (category.size() > 0) {
+			
+			for(int i = 0; i < category.get(0).getExamples().size() ; i++){
+				category.get(0).getExamples().get(i).removeCategory(category.get(0)); //this just says that for each CodeExample in the Category's "examples" field, remove this Category from that CodeExample's "categories" field
+			}
+			
 			db.delete(category.get(0));
 			System.out.println(name+" deleted."); 
 			return true;

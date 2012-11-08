@@ -203,4 +203,8 @@ public class CodeExample {
 			this.categories.add(category);
 			category.addExample(this);
 		}
+		
+		public boolean removeCategory(Category category) {
+			return categories.remove(category);
+		}
 }
