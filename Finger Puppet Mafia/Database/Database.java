@@ -200,6 +200,7 @@ public class Database {
 		// Stop operation if a category does not exist
 		if (categoryObjs.size() == 0) {
 			System.out.println("No categories found, this will not appear in any category.");
+			return false;
 		}
 		
 		// Create the CodeExample object using given information
