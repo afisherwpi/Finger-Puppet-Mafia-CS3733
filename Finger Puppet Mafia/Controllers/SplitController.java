@@ -19,14 +19,11 @@ public class SplitController {
 	}
 	
 	public void go(){
-		System.out.println("test");
 		searchController = new SearchController(new SearchView(), this);
 		displayController = new DisplayController(new DisplayView());
 		
 		view.setRight(displayController.getView());
-		System.out.println("test3");
 		view.setLeft(searchController.getView());
-		//view.setRight(displayController.getView());
 		
 		searchController.go();
 		displayController.go();

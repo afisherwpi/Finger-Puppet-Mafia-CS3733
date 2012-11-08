@@ -18,7 +18,6 @@ public class AddController {
 		private AddView view;
 		private SplitController splitController;
 		
-		// constructor will probably need to include the SplitController on top of this in the future.
 		public AddController(AddView dview, SplitController scon){
 			view = dview;
 			splitController = scon;
