@@ -35,6 +35,11 @@ public class Database {
 		db.delete(o);
 	}
 	
+	// close the database
+	public void close() {
+		db.close();
+	}
+	
 	// getExamplesByUserID: long -> ObjectSet<PersonalCodeExample>
 	// consumes a user ID and produces a list of code examples which belong
 	// to that user ID.
