@@ -9,7 +9,7 @@ public class Category {
 	 */
 	
 	private long ID;
-
+	private String description;
 	private boolean is_public;
 	private String title;
 	private long user_ID;
@@ -18,12 +18,14 @@ public class Category {
 	Category(long ID,
 			boolean is_public,
 			String name,
-			long user_ID) {
+			long user_ID,
+			String description) {
 		this.is_public = is_public;
 		this.title = name;
 		this.user_ID = user_ID;
 		this.examples = new ArrayList<CodeExample>();
 		this.ID = ID;
+		this.description = description;
 	}
 	
 	public ArrayList<CodeExample> getExamples() {

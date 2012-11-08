@@ -80,7 +80,7 @@ public class Database {
 	 * 
 	 * @author John Pham
 	 */
-	public boolean addCategory(String name, boolean isPublic, long user_ID) {
+	public boolean addCategory(String name, boolean isPublic, long user_ID, String descript) {
 		Query query = db.query(); // construct SODA query - SODA queries are the fastest in db4o
 		query.constrain(Category.class); // tell the query we're looking for a category
 		query.descend("title").constrain(name); // tell the query to search the categories for a title equivalent to name
@@ -90,7 +90,7 @@ public class Database {
 		}
 		else {
 			// Construct a Category object
-			Category toAdd = new Category(IDCount, isPublic, name, user_ID);
+			Category toAdd = new Category(IDCount, isPublic, name, user_ID, descript);
 			IDCount++;
 			// store the Category object
 			db.store(toAdd);

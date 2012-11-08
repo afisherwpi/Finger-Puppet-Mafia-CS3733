@@ -58,7 +58,7 @@ public class MainWindow extends Applet {
 		
 		// List of categories
 		List<Category> categories = new ArrayList<Category>();
-		categories.add(new Category(11, false, "TestCategory", 1));
+		categories.add(new Category(11, false, "TestCategory", 1, "this is a description"));
 		
 		// create test example
 		CodeExample testExample = new CodeExample(
