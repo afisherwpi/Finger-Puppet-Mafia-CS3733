@@ -14,7 +14,7 @@ public class Application {
 					ContainerView containerView = new ContainerView();
 					ContainerController containerController = new ContainerController(containerView, db);
 					containerController.go();
-					containerView.setSize(new Dimension(700,500));
+					containerView.setSize(new Dimension(750,500));
 					containerView.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
