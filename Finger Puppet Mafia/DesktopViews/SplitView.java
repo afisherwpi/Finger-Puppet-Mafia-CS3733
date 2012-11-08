@@ -13,6 +13,7 @@ public class SplitView{
 	public SplitView() {
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,null,null);
 		splitPane.setDividerLocation(200);
+		splitPane.setContinuousLayout(true);
 	}
 	
 	public Container getView(){
