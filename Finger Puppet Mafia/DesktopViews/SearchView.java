@@ -62,7 +62,7 @@ public class SearchView{
 		categorySaveButton = new JButton(" Save ");
 		searchTree = new JTree();
 		mainTreeNode = new MyCategoryTreeNode("Team High 5s Examples", "Your Examples!");
-		makeNewCatagoryNode = new MyCategoryTreeNode("Make new catagory", "Double click to make a new example");
+		makeNewCatagoryNode = new MyCategoryTreeNode("Make new category", "Double click to make a new example");
 		bottomPanel = new JPanel();
 		displayDescriptionLabel = new JLabel("Description:");
 		displayDescriptionBox = new JTextArea();
