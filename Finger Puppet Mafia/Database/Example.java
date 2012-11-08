@@ -8,10 +8,10 @@ public class Example {
 		Database db = new Database("exampledb.db4o");
 		
 		// Add some categories
-		db.addCategory("category1", false);
-		db.addCategory("category2", false);
-		db.addCategory("category3", false);
-		db.addCategory("deleteme", false);
+		db.addCategory("category1", "description1", false);
+		db.addCategory("category2", "description2", false);
+		db.addCategory("category3", "description3", false);
+		db.addCategory("deleteme", "description4", false);
 
 		// Get stored categories
 		List<String> categories = db.getCategoryNames();
