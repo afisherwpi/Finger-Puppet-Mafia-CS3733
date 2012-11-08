@@ -23,6 +23,10 @@ public class Database {
 		this.db = Db4oEmbedded.openFile(config, name);
 	}
 	
+	public void close() {
+		db.close();
+	}
+	
 	// store: Object -> void
 	// consumes any object and stores it into the database.
 	public void store(Object o){
