@@ -2,6 +2,7 @@ package DesktopViews;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -73,6 +74,7 @@ public class SearchView{
 		searchPanel.add(topPanel, BorderLayout.NORTH);
 		searchPanel.add(searchTree, BorderLayout.CENTER);
 		searchPanel.add(bottomPanel, BorderLayout.SOUTH);
+		searchPanel.setMinimumSize(new Dimension(100,100));
 		
 		topPanel.setLayout(new BorderLayout(0, 0));
 		topPanel.add(searchBox, BorderLayout.NORTH);
