@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import Controllers.ContainerController;
@@ -12,8 +13,9 @@ public class Application {
 					Database db = new Database("SoftwareEngineering.db4o");
 					ContainerView containerView = new ContainerView();
 					ContainerController containerController = new ContainerController(containerView, db);
-					containerView.setVisible(true);
 					containerController.go();
+					containerView.setSize(new Dimension(700,500));
+					containerView.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
