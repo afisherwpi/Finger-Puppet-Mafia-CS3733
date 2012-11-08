@@ -88,9 +88,9 @@ public class Database {
 	 * 
 	 * @author John Pham
 	 */
-	public boolean addCategory(String name, boolean isPublic) {
+	public boolean addCategory(String name, String description, boolean isPublic) {
 		// Construct a Category object
-		Category toAdd = new Category(isPublic, name, 1);
+		Category toAdd = new Category(isPublic, name, description, 1);
 		// store the Category object
 		db.store(toAdd);
 		System.out.println("New category added: "+toAdd);

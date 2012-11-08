@@ -113,6 +113,22 @@ public class AddView {
 		return addPanel;
 	}
 	
+	public JTextField getAddTitle(){
+		return tfAddTitle;
+	}
+	
+	public JTextArea getAddCode(){
+		return taAddCode;
+	}
+	
+	public JComboBox getAddProgrammingLanguage(){
+		return comboAddProgrammingLanguage;
+	}
+	
+	public JCheckBox getAddPublic(){
+		return cbAddPublic;
+	}
+	
 	public JButton getCancelButton(){
 		return btnAddCancel;
 	}

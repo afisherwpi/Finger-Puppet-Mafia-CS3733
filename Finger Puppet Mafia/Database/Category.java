@@ -12,14 +12,17 @@ public class Category {
 
 	private boolean is_public;
 	private String title;
+	private String description;
 	private long user_ID;
 	private ArrayList<CodeExample> examples; // all examples under Category
 	
 	Category(boolean is_public,
 			String name,
+			String description,
 			long user_ID) {
 		this.is_public = is_public;
 		this.title = name;
+		this.description = description;
 		this.user_ID = user_ID;
 		this.examples = new ArrayList<CodeExample>();
 	}
@@ -32,6 +35,14 @@ public class Category {
 		return examples;
 	} 
 	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	/**
 	 * @return the ID
 	 */

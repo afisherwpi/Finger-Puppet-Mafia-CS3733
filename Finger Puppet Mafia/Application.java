@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 
 import Controllers.ContainerController;
+import Database.Database;
 import DesktopViews.ContainerView;
 
 public class Application {
@@ -8,8 +9,9 @@ public class Application {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Database db = new Database("SoftwareEngineering.db4o");
 					ContainerView containerView = new ContainerView();
-					ContainerController containerController = new ContainerController(containerView);
+					ContainerController containerController = new ContainerController(containerView, db);
 					containerView.setVisible(true);
 					containerController.go();
 				} catch (Exception e) {

@@ -8,19 +8,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Database.Database;
 import DesktopViews.AddView;
 
 public class AddController {
 		private AddView view;
 		private SplitController splitController;
+		private  Database db;
 		
-		public AddController(AddView dview, SplitController scon){
+		public AddController(AddView dview, SplitController scon,  Database mydb){
 			view = dview;
 			splitController = scon;
+			db = mydb;
 		}
 		
 		public void go() {
@@ -74,6 +78,12 @@ public class AddController {
 			view.getSaveButton().addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
+//					db.addCodeExample(view.getAddTitle().getText(), 
+//										"", 
+//										view.getAddCode().getText(), 
+//										view.getAddProgrammingLanguage().getSelectedItem().toString(),
+//										new ArrayList<String>().add("Other"),
+//										view.getAddPublic().isSelected());
 					splitController.addSaveButtonPressed();
 				}
 			});

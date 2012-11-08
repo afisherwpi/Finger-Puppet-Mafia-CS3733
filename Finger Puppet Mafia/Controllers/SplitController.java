@@ -3,6 +3,7 @@ package Controllers;
 import java.awt.Component;
 import java.awt.Container;
 
+import Database.Database;
 import DesktopViews.AddView;
 import DesktopViews.DisplayView;
 import DesktopViews.SearchView;
@@ -10,17 +11,19 @@ import DesktopViews.SplitView;
 
 public class SplitController {
 	private SplitView view;
+	private Database db;
 	private SearchController searchController;
 	private DisplayController displayController;
 	private AddController addController;
 
-	public SplitController(SplitView sview){
+	public SplitController(SplitView sview, Database mydb){
 		view = sview;
+		db = mydb;
 	}
 	
 	public void go(){
-		searchController = new SearchController(new SearchView(), this);
-		displayController = new DisplayController(new DisplayView());
+		searchController = new SearchController(new SearchView(), this, db);
+		displayController = new DisplayController(new DisplayView(), db);
 		
 		view.setRight(displayController.getView());
 		view.setLeft(searchController.getView());
@@ -34,7 +37,7 @@ public class SplitController {
 	}
 
 	public void addButtonPressed() {
-		addController = new AddController(new AddView(), this);
+		addController = new AddController(new AddView(), this, db);
 		addController.go();
 		view.setRight(addController.getView());
 		searchController.disableAddButton();
