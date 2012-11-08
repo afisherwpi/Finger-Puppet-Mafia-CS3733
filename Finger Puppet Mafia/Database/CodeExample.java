@@ -185,7 +185,7 @@ public class CodeExample {
 		public boolean isDeleted() {
 			return isDeleted;
 		}
-
+ 
 		/**
 		 * @param isDeleted the isDeleted to set
 		 */

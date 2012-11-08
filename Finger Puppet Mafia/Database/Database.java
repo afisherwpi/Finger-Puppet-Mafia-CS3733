@@ -132,7 +132,7 @@ public class Database {
 			System.out.println("Category not found.");
 			return false;
 		}
-	}
+	} 
 	
 	/**getExampleNames - Retrieves the String names of each example
 	 * 						associated with a category name
