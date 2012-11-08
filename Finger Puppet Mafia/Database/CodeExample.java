@@ -204,6 +204,11 @@ public class CodeExample {
 			category.addExample(this);
 		}
 		
+		/**
+		 * Removes a category from this codeExample's categories list
+		 * @param category the category to remove
+		 * @return whether it was successful or not
+		 */
 		public boolean removeCategory(Category category) {
 			return categories.remove(category);
 		}
