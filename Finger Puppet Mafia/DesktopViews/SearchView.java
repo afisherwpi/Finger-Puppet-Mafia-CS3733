@@ -74,7 +74,7 @@ public class SearchView{
 		searchPanel.add(topPanel, BorderLayout.NORTH);
 		searchPanel.add(searchTree, BorderLayout.CENTER);
 		searchPanel.add(bottomPanel, BorderLayout.SOUTH);
-		searchPanel.setMinimumSize(new Dimension(100,100));
+		searchPanel.setMinimumSize(new Dimension(0,0));
 		
 		topPanel.setLayout(new BorderLayout(0, 0));
 		topPanel.add(searchBox, BorderLayout.NORTH);
