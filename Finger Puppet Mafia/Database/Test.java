@@ -13,7 +13,7 @@ public class Test {
 		
 		// List of categories
 		List<Category> categories = new ArrayList<Category>();
-		categories.add(new Category(false, "TestCategory", 1));
+		categories.add(new Category(1010, false, "TestCategory", 1));
 		
 		// create test example
 		CodeExample testExample = new CodeExample(

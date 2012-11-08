@@ -15,13 +15,15 @@ public class Category {
 	private long user_ID;
 	private ArrayList<CodeExample> examples; // all examples under Category
 	
-	Category(boolean is_public,
+	Category(long ID,
+			boolean is_public,
 			String name,
 			long user_ID) {
 		this.is_public = is_public;
 		this.title = name;
 		this.user_ID = user_ID;
 		this.examples = new ArrayList<CodeExample>();
+		this.ID = ID;
 	}
 	
 	public ArrayList<CodeExample> getExamples() {

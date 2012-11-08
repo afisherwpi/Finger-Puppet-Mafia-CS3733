@@ -15,6 +15,7 @@ public class Database {
 	private String dbName;
 	private ObjectContainer db;
 	EmbeddedConfiguration config = Db4oEmbedded.newConfiguration();
+	private long IDCount = 0;
 	
 	public Database(String name){
 		this.dbName = name;
@@ -63,12 +64,7 @@ public class Database {
 	}
 	
 	
-	/**
-	 * @param ID the unique ID of the user whose CodeExamples we're looking for
-	 * @return a List of CodeExamples created by the user with the specified unique ID
-	 * 
-	 * @author Trevor Behlman
-	 */
+
 	public List<Category> getCategories(){
 		return db.query(new Predicate<Category>(){
 			public boolean match(Category category){
@@ -84,13 +80,23 @@ public class Database {
 	 * 
 	 * @author John Pham
 	 */
-	public boolean addCategory(String name, boolean isPublic) {
-		// Construct a Category object
-		Category toAdd = new Category(isPublic, name, 1);
-		// store the Category object
-		db.store(toAdd);
-		System.out.println("New category added: "+toAdd);
-		return true;
+	public boolean addCategory(String name, boolean isPublic, long user_ID) {
+		Query query = db.query(); // construct SODA query - SODA queries are the fastest in db4o
+		query.constrain(Category.class); // tell the query we're looking for a category
+		query.descend("title").constrain(name); // tell the query to search the categories for a title equivalent to name
+		if (query.execute().size() > 0) { //if the database contains a category already with title name
+			System.out.println("The category you are trying to add ("+name+") is already in the database.");
+			return false;
+		}
+		else {
+			// Construct a Category object
+			Category toAdd = new Category(IDCount, isPublic, name, user_ID);
+			IDCount++;
+			// store the Category object
+			db.store(toAdd);
+			System.out.println("New category added: "+toAdd);
+			return true;
+		}
 	}
 	
 	/**deleteCategory - Finds and deletes a category by name
@@ -183,7 +189,7 @@ public class Database {
 	 * @author John Pham
 	 */
 	public boolean addCodeExample(String title, String description, String code, 
-										String language, final List<String> categories, boolean isPublic) {
+										String language, final List<String> categories, boolean isPublic, long user_ID) {
 		
 		// Converting the string names into actual Category objects
 		List<Category> categoryObjs = new ArrayList<Category>();
@@ -193,13 +199,12 @@ public class Database {
 		
 		// Stop operation if a category does not exist
 		if (categoryObjs.size() == 0) {
-			System.out.println("No categories found.");
-			return false;
+			System.out.println("No categories found, this will not appear in any category.");
 		}
 		
 		// Create the CodeExample object using given information
 		Date currentDate = new Date();
-		CodeExample example = new CodeExample(1, 1, title, description, code, currentDate, currentDate, 
+		CodeExample example = new CodeExample(IDCount, user_ID, title, description, code, currentDate, currentDate, 
 												isPublic, language, false, categoryObjs);
 		
 		// Update all associated categories
