@@ -70,7 +70,7 @@ public class AddView {
 		addPanel.add(addPublicPanel);
 		addPanel.add(addButtonPanel);
 		
-		lblAddInstruction = new JLabel("Fill out the following feilds and click save inorder to add an entry to your Programmers Examples Notebook.");
+		lblAddInstruction = new JLabel("Fill out the following fields and click save in order to add an entry to your Programmers Examples Notebook.");
 		lblAddTitle = new JLabel("Title:");
 		lblAddKeyWords = new JLabel("Key Words:");
 		lblAddProgrammingLanguage = new JLabel("Language:");
