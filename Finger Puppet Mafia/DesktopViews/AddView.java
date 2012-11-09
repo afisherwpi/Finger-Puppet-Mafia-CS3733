@@ -2,6 +2,7 @@ package DesktopViews;
 
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -94,7 +95,6 @@ public class AddView {
 		
 		tfAddTitle = new JTextField();
 		tfAddDescription = new JTextField();
-		comboAddCategory = new JComboBox();
 		tfAddKeyWords = new JTextField();
 		comboAddProgrammingLanguage = new JComboBox(possibleProgrammingLanguages);
 		taAddCode = new JTextArea();
@@ -116,7 +116,6 @@ public class AddView {
 		addTitlePanel.add(tfAddTitle);
 		addKeyWordsPanel.add(tfAddKeyWords);
 		addDescriptionPanel.add(tfAddDescription);
-		addCategoryPanel.add(comboAddCategory);
 		addProgrammingLanguagePanel.add(comboAddProgrammingLanguage);
 		addCodePanel.add(taAddCode);
 		addDependenciesPanel.add(tfAddDependencies);
@@ -159,6 +158,19 @@ public class AddView {
 	
 	public JTextField getKeyWordsTextFeild(){
 		return tfAddKeyWords;
+	}
+
+	public JTextField getTfAddDescription() {
+		return tfAddDescription;
+	}
+
+	public JComboBox getComboAddCategory() {
+		return comboAddCategory;
+	}
+
+	public void makeCategoryCombo(List<String> s) {
+		comboAddCategory = new JComboBox(s.toArray());
+		addCategoryPanel.add(comboAddCategory);
 	}
 
 }

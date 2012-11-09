@@ -29,6 +29,8 @@ public class AddController {
 		}
 		
 		public void go() {
+			List<String> categories = db.getCategoryNames();
+			view.makeCategoryCombo(categories);
 			ActionListener keyWordActionListener = new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
@@ -80,9 +82,9 @@ public class AddController {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					List<String> dummy = new ArrayList<String>();
-					dummy.add("Other");
+					dummy.add(view.getComboAddCategory().getSelectedItem().toString());
 					db.addCodeExample(view.getAddTitle().getText(), 
-										"sakld;jgj;alksdgj;a", 
+										view.getTfAddDescription().getText(), 
 										view.getAddCode().getText(), 
 										view.getAddProgrammingLanguage().getSelectedItem().toString(),
 										dummy,
