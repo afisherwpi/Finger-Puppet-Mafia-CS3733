@@ -68,7 +68,6 @@ public class SearchController {
 				db.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText(), false);
 				view.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText());
 				view.hideCatagoryNaming();
-				view.getAddOtherButton().setEnabled(true);
 			}
 		};
 		view.getCategoryBox().addActionListener(categoryActionListener);

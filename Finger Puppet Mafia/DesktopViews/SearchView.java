@@ -35,7 +35,7 @@ public class SearchView{
 	private JLabel displayDescriptionLabel;
 	private JTextArea displayDescriptionBox;
 	private JButton addButton;
-	private JButton addOtherButton;
+	private JButton addCategoryButton;
 	private JPanel buttonPanel;
 	
 	public class MyCategoryTreeNode extends DefaultMutableTreeNode{
@@ -87,8 +87,8 @@ public class SearchView{
 		bottomPanel = new JPanel();
 		displayDescriptionLabel = new JLabel("Description:");
 		displayDescriptionBox = new JTextArea();
-		addButton = new JButton("add");
-		addOtherButton = new JButton("Add New Category");
+		addButton = new JButton("Make New Example");
+		addCategoryButton = new JButton("Add New Category");
 		buttonPanel = new JPanel();
 
 		
@@ -127,7 +127,7 @@ public class SearchView{
 		bottomPanel.add(buttonPanel, BorderLayout.SOUTH);
 		
 		buttonPanel.setLayout(new BorderLayout(0, 0));
-		buttonPanel.add(addOtherButton, BorderLayout.CENTER);
+		buttonPanel.add(addCategoryButton, BorderLayout.CENTER);
 		buttonPanel.add(addButton, BorderLayout.SOUTH);
 		buttonPanel.setMinimumSize(new Dimension(0,0));
 		
@@ -142,7 +142,7 @@ public class SearchView{
 	}
 	
 	public JButton getAddOtherButton(){
-		return addOtherButton;
+		return addCategoryButton;
 	}
 	
 	public JTree getSeachTree(){
@@ -194,6 +194,7 @@ public class SearchView{
 			categoryBox.setText("");
 			categoryDescriptionBox.setText("");
 			topPanel.revalidate();
+			this.addCategoryButton.setEnabled(true);
 		}
 	}
 	
