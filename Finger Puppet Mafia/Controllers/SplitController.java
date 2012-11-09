@@ -53,4 +53,8 @@ public class SplitController {
 		searchController.enableAddButton();
 	}
 
+	public void displayCode(String title) {
+		displayController.displayCode(title);
+		
+	}
 }

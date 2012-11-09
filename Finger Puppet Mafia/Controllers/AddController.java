@@ -82,7 +82,7 @@ public class AddController {
 					List<String> dummy = new ArrayList<String>();
 					dummy.add("Other");
 					db.addCodeExample(view.getAddTitle().getText(), 
-										"", 
+										"sakld;jgj;alksdgj;a", 
 										view.getAddCode().getText(), 
 										view.getAddProgrammingLanguage().getSelectedItem().toString(),
 										dummy,

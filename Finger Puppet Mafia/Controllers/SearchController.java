@@ -17,6 +17,7 @@ import Database.CodeExample;
 import Database.Database;
 import DesktopViews.SearchView;
 import DesktopViews.SearchView.MyCategoryTreeNode;
+import DesktopViews.SearchView.MyCodeExampleTreeNode;
 
 public class SearchController {
 	private SearchView view;
@@ -81,6 +82,8 @@ public class SearchController {
 		        	else if(e.getClickCount() == 2) {
 		                if(((DefaultMutableTreeNode)selPath.getLastPathComponent()) == view.getMakeNewCatagoryNode()){
 		                	view.displayCatagoryNaming();
+		                }else if (selPath.getLastPathComponent() instanceof MyCodeExampleTreeNode) {
+		                	splitController.displayCode(((DefaultMutableTreeNode)selPath.getLastPathComponent()).getUserObject().toString());
 		                }
 		            }
 		        }

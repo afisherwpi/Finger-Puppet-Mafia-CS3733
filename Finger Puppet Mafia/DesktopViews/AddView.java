@@ -15,6 +15,8 @@ public class AddView {
 	private JPanel addPanel;
 	private JPanel addInstructionPanel;
 	private JPanel addTitlePanel;
+	private JPanel addDescriptionPanel;
+	private JPanel addCategoryPanel;
 	private JPanel addKeyWordsPanel;
 	private JPanel addProgrammingLanguagePanel;
 	private JPanel addCodePanel;
@@ -24,6 +26,8 @@ public class AddView {
 	
 	private JLabel lblAddInstruction;
 	private JLabel lblAddTitle;
+	private JLabel lblAddDescription;
+	private JLabel lblAddCategory;
 	private JLabel lblAddKeyWords;
 	private String[] possibleProgrammingLanguages = {"Java", "C", "C++/C", "Python", "Ruby", "Pascal", "Other..."};
 	private JLabel lblAddProgrammingLanguage;
@@ -32,6 +36,8 @@ public class AddView {
 	private JLabel lblAddPublic;
 	
 	private JTextField tfAddTitle;
+	private JTextField tfAddDescription;
+	private JComboBox comboAddCategory;
 	private JTextField tfAddKeyWords;
 	private JComboBox comboAddProgrammingLanguage;
 	private JTextArea taAddCode;
@@ -44,6 +50,8 @@ public class AddView {
 		addPanel = new JPanel();
 		addInstructionPanel = new JPanel();
 		addTitlePanel = new JPanel();
+		addDescriptionPanel = new JPanel();
+		addCategoryPanel = new JPanel();
 		addKeyWordsPanel = new JPanel();
 		addProgrammingLanguagePanel = new JPanel();
 		addCodePanel = new JPanel();
@@ -54,6 +62,8 @@ public class AddView {
 		addPanel.setLayout(new GridLayout(0, 1));
 		addInstructionPanel.setLayout(new GridLayout(0, 1));
 		addTitlePanel.setLayout(new GridLayout(0, 2));
+		addDescriptionPanel.setLayout(new GridLayout(0, 2));
+		addCategoryPanel.setLayout(new GridLayout(0, 2));
 		addKeyWordsPanel.setLayout(new GridLayout(0, 2));
 		addProgrammingLanguagePanel.setLayout(new GridLayout(0, 2));
 		addCodePanel.setLayout(new GridLayout(0, 2));
@@ -63,6 +73,8 @@ public class AddView {
 		
 		addPanel.add(addInstructionPanel);
 		addPanel.add(addTitlePanel);
+		addPanel.add(addDescriptionPanel);
+		addPanel.add(addCategoryPanel);
 		addPanel.add(addKeyWordsPanel);
 		addPanel.add(addProgrammingLanguagePanel);
 		addPanel.add(addCodePanel);
@@ -72,6 +84,8 @@ public class AddView {
 		
 		lblAddInstruction = new JLabel("<html>Fill out the following fields and click save in order to add an entry to your Programmers Examples Notebook.</html>");
 		lblAddTitle = new JLabel("Title:");
+		lblAddDescription = new JLabel("Description:");
+		lblAddCategory = new JLabel("Category:");
 		lblAddKeyWords = new JLabel("Key Words:");
 		lblAddProgrammingLanguage = new JLabel("Language:");
 		lblAddCode = new JLabel("Code:");
@@ -79,6 +93,8 @@ public class AddView {
 		lblAddPublic = new JLabel("Make Public?");
 		
 		tfAddTitle = new JTextField();
+		tfAddDescription = new JTextField();
+		comboAddCategory = new JComboBox();
 		tfAddKeyWords = new JTextField();
 		comboAddProgrammingLanguage = new JComboBox(possibleProgrammingLanguages);
 		taAddCode = new JTextArea();
@@ -89,6 +105,8 @@ public class AddView {
 		
 		addInstructionPanel.add(lblAddInstruction);
 		addTitlePanel.add(lblAddTitle);
+		addDescriptionPanel.add(lblAddDescription);
+		addCategoryPanel.add(lblAddCategory);
 		addKeyWordsPanel.add(lblAddKeyWords);
 		addProgrammingLanguagePanel.add(lblAddProgrammingLanguage);
 		addCodePanel.add(lblAddCode);
@@ -97,6 +115,8 @@ public class AddView {
 		
 		addTitlePanel.add(tfAddTitle);
 		addKeyWordsPanel.add(tfAddKeyWords);
+		addDescriptionPanel.add(tfAddDescription);
+		addCategoryPanel.add(comboAddCategory);
 		addProgrammingLanguagePanel.add(comboAddProgrammingLanguage);
 		addCodePanel.add(taAddCode);
 		addDependenciesPanel.add(tfAddDependencies);
