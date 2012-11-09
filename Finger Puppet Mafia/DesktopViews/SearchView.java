@@ -92,7 +92,7 @@ public class SearchView{
 		addButton = new JButton("Make New Example");
 		addCategoryButton = new JButton("Add New Category");
 		buttonPanel = new JPanel();
-		errorLabel = new JLabel("Category already exits!");
+		errorLabel = new JLabel("Category already exists!");
 
 		
 		searchPanel.setLayout(new BorderLayout(0, 0));	
