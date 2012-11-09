@@ -108,6 +108,14 @@ public class CodeExample {
 			this.description = description;
 		}
 
+		public List<Category> getCategories() {
+			return categories;
+		}
+
+		public void setCategories(List<Category> categories) {
+			this.categories = categories;
+		}
+
 		/**
 		 * @return the code
 		 */
@@ -185,7 +193,7 @@ public class CodeExample {
 		public boolean isDeleted() {
 			return isDeleted;
 		}
- 
+
 		/**
 		 * @param isDeleted the isDeleted to set
 		 */
@@ -202,14 +210,5 @@ public class CodeExample {
 		public void addCategory(Category category){
 			this.categories.add(category);
 			category.addExample(this);
-		}
-		
-		/**
-		 * Removes a category from this codeExample's categories list
-		 * @param category the category to remove
-		 * @return whether it was successful or not
-		 */
-		public boolean removeCategory(Category category) {
-			return categories.remove(category);
 		}
 }

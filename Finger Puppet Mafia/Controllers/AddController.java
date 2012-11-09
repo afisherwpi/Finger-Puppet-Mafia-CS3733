@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -78,13 +79,16 @@ public class AddController {
 			view.getSaveButton().addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-//					db.addCodeExample(view.getAddTitle().getText(), 
-//										"", 
-//										view.getAddCode().getText(), 
-//										view.getAddProgrammingLanguage().getSelectedItem().toString(),
-//										new ArrayList<String>().add("Other"),
-//										view.getAddPublic().isSelected());
-					splitController.addSaveButtonPressed();
+					List<String> dummy = new ArrayList<String>();
+					dummy.add("Other");
+					db.addCodeExample(view.getAddTitle().getText(), 
+										"", 
+										view.getAddCode().getText(), 
+										view.getAddProgrammingLanguage().getSelectedItem().toString(),
+										dummy,
+										view.getAddPublic().isSelected());
+					splitController.addSaveButtonPressed(view.getAddTitle().getText());
+					
 				}
 			});
 			

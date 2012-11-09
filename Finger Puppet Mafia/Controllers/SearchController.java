@@ -6,12 +6,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.tree.TreePath;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import Database.Category;
+import Database.CodeExample;
 import Database.Database;
 import DesktopViews.SearchView;
 import DesktopViews.SearchView.MyCategoryTreeNode;
@@ -31,7 +33,16 @@ public class SearchController {
 		List<Category> categoryList = db.getCategories();
 		for(Category c : categoryList){
 			view.addCategory(c.getName(), c.getDescription());
+			List<CodeExample> codeExamples = db.getCategoryExamples(c.getName());
+			for(CodeExample ce : codeExamples){
+				String title = ce.getTitle();
+				String description = ce.getDescription(); 
+				List<Category> categories = new ArrayList<Category>();
+				categories.add(c);
+				view.addCodeExample(title, description, categories);
+			}
 		}
+		
 		view.getAddButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -88,5 +99,13 @@ public class SearchController {
 	
 	public void enableAddButton(){
 		view.getAddButton().setEnabled(true);
+	}
+
+	public void addCodeExample(String title) {
+		List<CodeExample> code = db.getExamplesByFieldValue("title", title);
+		String description = code.get(0).getDescription(); 
+		List<Category> categories = code.get(0).getCategories();
+		view.addCodeExample(title, description, categories);
+		
 	}
 }

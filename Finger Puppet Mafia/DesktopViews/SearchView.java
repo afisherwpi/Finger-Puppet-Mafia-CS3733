@@ -3,6 +3,7 @@ package DesktopViews;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+
+import Database.Category;
 
 public class SearchView{
 	private JPanel searchPanel;
@@ -38,13 +41,30 @@ public class SearchView{
 		private static final long serialVersionUID = 7164254714041050808L;
 		private String categoryDescription;
 		
-		MyCategoryTreeNode(Object userObject, String description){
+		public MyCategoryTreeNode(Object userObject, String description){
 			super(userObject);
 			categoryDescription = userObject.toString() + ":\n" + description;
 		}
 		
 		public String getCategoryDescription(){
 			return categoryDescription;
+		}
+		
+		public void display(){
+			
+		}
+	}
+	
+	public class MyCodeExampleTreeNode extends MyCategoryTreeNode{
+		private static final long serialVersionUID = 5279792990114451979L;
+
+		public MyCodeExampleTreeNode(Object userObject, String description) {
+			super(userObject, description);
+		}
+
+		@Override
+		public void display(){
+			
 		}
 	}
 	
@@ -63,7 +83,7 @@ public class SearchView{
 		categorySaveButton = new JButton(" Save ");
 		searchTree = new JTree();
 		mainTreeNode = new MyCategoryTreeNode("Team High 5s Examples", "Your Examples!");
-		makeNewCatagoryNode = new MyCategoryTreeNode("Make new category", "Double click to make a new example");
+		makeNewCatagoryNode = new MyCategoryTreeNode("Make new catagory", "Double click to make a new example");
 		bottomPanel = new JPanel();
 		displayDescriptionLabel = new JLabel("Description:");
 		displayDescriptionBox = new JTextArea();
@@ -173,6 +193,18 @@ public class SearchView{
 	
 	public void addCategory(String name, String description){
 		((DefaultTreeModel)searchTree.getModel()).insertNodeInto(new MyCategoryTreeNode(name, description), mainTreeNode, mainTreeNode.getChildCount() - 1);
+	}
+
+	public void addCodeExample(String title, String description, List<Category> categories) {
+		for(Category c: categories){
+			int numCategories = mainTreeNode.getChildCount();
+			for (int i = 0; i < numCategories; i++){
+				DefaultMutableTreeNode holder = ((DefaultMutableTreeNode)mainTreeNode.getChildAt(i));
+				if(holder.getUserObject().toString().equals(c.getName())){
+					((DefaultTreeModel)searchTree.getModel()).insertNodeInto(new MyCodeExampleTreeNode(title, description), holder, 0);
+				}
+			}
+		}		
 	}
 
 }

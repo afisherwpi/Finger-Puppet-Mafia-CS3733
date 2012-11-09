@@ -1,6 +1,5 @@
 package Controllers;
 
-import java.awt.Component;
 import java.awt.Container;
 
 import Database.Database;
@@ -48,8 +47,9 @@ public class SplitController {
 		searchController.enableAddButton();
 	}
 	
-	public void addSaveButtonPressed() {
+	public void addSaveButtonPressed(String title) {
 		view.setRight(displayController.getView());
+		searchController.addCodeExample(title);
 		searchController.enableAddButton();
 	}
 
