@@ -31,11 +31,12 @@ public class SearchView{
 	private JButton categorySaveButton;
 	private JTree searchTree;
 	private MyCategoryTreeNode mainTreeNode;
-	private MyCategoryTreeNode makeNewCatagoryNode;
 	private JPanel bottomPanel;
 	private JLabel displayDescriptionLabel;
 	private JTextArea displayDescriptionBox;
 	private JButton addButton;
+	private JButton addOtherButton;
+	private JPanel buttonPanel;
 	
 	public class MyCategoryTreeNode extends DefaultMutableTreeNode{
 		private static final long serialVersionUID = 7164254714041050808L;
@@ -83,11 +84,12 @@ public class SearchView{
 		categorySaveButton = new JButton(" Save ");
 		searchTree = new JTree();
 		mainTreeNode = new MyCategoryTreeNode("Team High 5s Examples", "Your Examples!");
-		makeNewCatagoryNode = new MyCategoryTreeNode("Make new catagory", "Double click to make a new example");
 		bottomPanel = new JPanel();
 		displayDescriptionLabel = new JLabel("Description:");
 		displayDescriptionBox = new JTextArea();
 		addButton = new JButton("add");
+		addOtherButton = new JButton("Add New Category");
+		buttonPanel = new JPanel();
 
 		
 		searchPanel.setLayout(new BorderLayout(0, 0));	
@@ -116,14 +118,18 @@ public class SearchView{
 		
 		categoryDescriptionBox.setLineWrap(true);
 		categoryDescriptionBox.setWrapStyleWord(true);
-		mainTreeNode.add(makeNewCatagoryNode);
 		
 		searchTree.setModel(new DefaultTreeModel(mainTreeNode));
 		
 		bottomPanel.setLayout(new BorderLayout(0, 0));
 		bottomPanel.add(displayDescriptionLabel, BorderLayout.NORTH);
 		bottomPanel.add(displayDescriptionBox, BorderLayout.CENTER);
-		bottomPanel.add(addButton, BorderLayout.SOUTH);
+		bottomPanel.add(buttonPanel, BorderLayout.SOUTH);
+		
+		buttonPanel.setLayout(new BorderLayout(0, 0));
+		buttonPanel.add(addOtherButton, BorderLayout.CENTER);
+		buttonPanel.add(addButton, BorderLayout.SOUTH);
+		buttonPanel.setMinimumSize(new Dimension(0,0));
 		
 		displayDescriptionBox.setLineWrap(true);
 		categoryDescriptionBox.setWrapStyleWord(true);
@@ -133,6 +139,10 @@ public class SearchView{
 	
 	public JButton getAddButton(){
 		return addButton;
+	}
+	
+	public JButton getAddOtherButton(){
+		return addOtherButton;
 	}
 	
 	public JTree getSeachTree(){
@@ -149,10 +159,6 @@ public class SearchView{
 	
 	public MyCategoryTreeNode getMainTreeNode(){
 		return mainTreeNode;
-	}
-	
-	public MyCategoryTreeNode getMakeNewCatagoryNode(){
-		return makeNewCatagoryNode;
 	}
 	
 	public JTextField getCategoryBox(){
@@ -191,8 +197,12 @@ public class SearchView{
 		}
 	}
 	
+	public void redraw(){
+		searchTree.revalidate();
+	}
+	
 	public void addCategory(String name, String description){
-		((DefaultTreeModel)searchTree.getModel()).insertNodeInto(new MyCategoryTreeNode(name, description), mainTreeNode, mainTreeNode.getChildCount() - 1);
+		((DefaultTreeModel)searchTree.getModel()).insertNodeInto(new MyCategoryTreeNode(name, description), mainTreeNode, mainTreeNode.getChildCount());
 	}
 
 	public void addCodeExample(String title, String description, List<Category> categories) {

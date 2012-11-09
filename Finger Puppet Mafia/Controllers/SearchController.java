@@ -52,12 +52,23 @@ public class SearchController {
 			}
 		});
 		
+		view.getAddOtherButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getAddOtherButton().setEnabled(false);
+				view.displayCatagoryNaming();
+				view.redraw();
+			}
+		
+		});
+		
 		ActionListener categoryActionListener = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				db.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText(), false);
 				view.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText());
 				view.hideCatagoryNaming();
+				view.getAddOtherButton().setEnabled(true);
 			}
 		};
 		view.getCategoryBox().addActionListener(categoryActionListener);
@@ -80,9 +91,7 @@ public class SearchController {
 		        		view.getDisplayDescriptionBox().setText(((MyCategoryTreeNode)selPath.getLastPathComponent()).getCategoryDescription());
 		        	}
 		        	else if(e.getClickCount() == 2) {
-		                if(((DefaultMutableTreeNode)selPath.getLastPathComponent()) == view.getMakeNewCatagoryNode()){
-		                	view.displayCatagoryNaming();
-		                }else if (selPath.getLastPathComponent() instanceof MyCodeExampleTreeNode) {
+		                if (selPath.getLastPathComponent() instanceof MyCodeExampleTreeNode) {
 		                	splitController.displayCode(((DefaultMutableTreeNode)selPath.getLastPathComponent()).getUserObject().toString());
 		                }
 		            }
