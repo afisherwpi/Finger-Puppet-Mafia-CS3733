@@ -14,6 +14,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
 import org.fife.ui.rtextarea.*;
 import org.fife.ui.rsyntaxtextarea.*;
@@ -32,6 +33,7 @@ public class DisplayView {
 	private JLabel keyWordsLabel;
 	private JTextField keyWordsText;
 	private RTextScrollPane scrollPane;
+	private JButton btnSaveChanges;
 	
 	public DisplayView(){
 		codeArea = new RSyntaxTextArea(20, 60);
@@ -83,6 +85,10 @@ public class DisplayView {
 		keyWordsText.setEditable(false);
 		keyWordsText.setText("C, Print, String");
 		keyWordsText.setColumns(10);
+
+		btnSaveChanges = new JButton("Save changes");
+		btnSaveChanges.setEnabled(false);
+		footerPanel.add(btnSaveChanges);
 	}
 	
 	public JPanel getHeaderPanel() {
@@ -111,6 +117,10 @@ public class DisplayView {
 	
 	public JPanel getDisplayPanel() {
 		return displayPanel;
+	}
+
+	public JButton getBtnSaveChanges() {
+		return btnSaveChanges;
 	}
 	
 	
