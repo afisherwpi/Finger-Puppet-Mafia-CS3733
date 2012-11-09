@@ -1,6 +1,7 @@
 package DesktopViews;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.util.List;
@@ -37,6 +38,7 @@ public class SearchView{
 	private JButton addButton;
 	private JButton addCategoryButton;
 	private JPanel buttonPanel;
+	private JLabel errorLabel;
 	
 	public class MyCategoryTreeNode extends DefaultMutableTreeNode{
 		private static final long serialVersionUID = 7164254714041050808L;
@@ -90,6 +92,7 @@ public class SearchView{
 		addButton = new JButton("Make New Example");
 		addCategoryButton = new JButton("Add New Category");
 		buttonPanel = new JPanel();
+		errorLabel = new JLabel("Category already exits!");
 
 		
 		searchPanel.setLayout(new BorderLayout(0, 0));	
@@ -134,6 +137,8 @@ public class SearchView{
 		displayDescriptionBox.setLineWrap(true);
 		categoryDescriptionBox.setWrapStyleWord(true);
 		displayDescriptionBox.setEditable(false);
+		
+		errorLabel.setForeground(Color.red);
 		
 	}
 	
@@ -216,6 +221,16 @@ public class SearchView{
 				}
 			}
 		}		
+	}
+	
+	public void showDuplicateCategoryError() {
+		categoryPanel2.add(errorLabel, BorderLayout.CENTER);	
+		categoryPanel2.revalidate();
+	}
+	
+	public void hideDuplicateCategoryError(){
+		categoryPanel2.remove(errorLabel);
+		categoryPanel2.revalidate();
 	}
 
 }

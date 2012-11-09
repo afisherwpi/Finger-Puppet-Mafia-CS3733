@@ -65,9 +65,13 @@ public class SearchController {
 		ActionListener categoryActionListener = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				db.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText(), false);
-				view.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText());
-				view.hideCatagoryNaming();
+				if (db.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText(), false)) {
+					view.addCategory(view.getCategoryBox().getText(), view.getCategoryDescriptionBox().getText());
+					view.hideCatagoryNaming();
+					view.hideDuplicateCategoryError();
+				} else {
+					view.showDuplicateCategoryError();
+				}
 			}
 		};
 		view.getCategoryBox().addActionListener(categoryActionListener);
@@ -77,6 +81,7 @@ public class SearchController {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				view.hideCatagoryNaming();
+				view.hideDuplicateCategoryError();
 			}
 		};
 		view.getCategoryCancelButton().addActionListener(categoryCancelActionListener);
