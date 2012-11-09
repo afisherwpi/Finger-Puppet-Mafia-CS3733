@@ -1,3 +1,6 @@
+//added RSyntaxTextArea from http://fifesoft.com/rsyntaxtextarea/
+//Edited by Stephen Peters, Michael Yeroshalmi, Anthony Spencer, Hannah Montana
+
 package DesktopViews;
 
 import java.awt.BorderLayout;
@@ -8,40 +11,49 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import org.fife.ui.rtextarea.*;
+import org.fife.ui.rsyntaxtextarea.*;
 
 public class DisplayView {
 	private JPanel displayPanel;
 	private JPanel headerPanel;
 	private JLabel titleLabel;
 	private JLabel descriptionLabel;  // should this be here? there is not description field for an entry
-	private JScrollBar scrollBar;
+	//private JScrollBar scrollBar;
 	private JTextArea lineNumberArea;
-	private JTextArea codeArea;
+	//private JTextArea codeArea;
+	private RSyntaxTextArea codeArea;
 	private JPanel footerPanel;
 	private JPanel tagsPanel;
 	private JLabel keyWordsLabel;
 	private JTextField keyWordsText;
+	private RTextScrollPane scrollPane;
 	
 	public DisplayView(){
+		codeArea = new RSyntaxTextArea(20, 60);
+		codeArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
+	    codeArea.setCodeFoldingEnabled(true);
+	    codeArea.setAntiAliasingEnabled(true);
+	    codeArea.setLineWrap(true);
 		displayPanel = new JPanel();
 		headerPanel = new JPanel();
 		titleLabel = new JLabel("Print Statement (with string)");
 		descriptionLabel = new JLabel("<html>When you want to add a string to a print statement you use '%s' and then add your string after the comma in the print statement.</html>");
-		scrollBar = new JScrollBar();
 		lineNumberArea = new JTextArea();
-		codeArea = new JTextArea();
+		//codeArea = new JTextArea();
 		footerPanel = new JPanel();
 		tagsPanel = new JPanel();
 		keyWordsLabel = new JLabel("Keywords:  ");
 		keyWordsText = new JTextField();
-		
+		scrollPane = new RTextScrollPane(codeArea);
 		displayPanel.setLayout(new BorderLayout(0, 0));
 		displayPanel.add(headerPanel, BorderLayout.NORTH);
-		displayPanel.add(scrollBar, BorderLayout.EAST);
-		displayPanel.add(lineNumberArea, BorderLayout.WEST);
-		displayPanel.add(codeArea, BorderLayout.CENTER);
+		//displayPanel.add(lineNumberArea, BorderLayout.WEST);
+		displayPanel.add(scrollPane, BorderLayout.CENTER);
 		displayPanel.add(footerPanel, BorderLayout.SOUTH);
 		
 		headerPanel.setLayout(new BorderLayout(0, 0));
