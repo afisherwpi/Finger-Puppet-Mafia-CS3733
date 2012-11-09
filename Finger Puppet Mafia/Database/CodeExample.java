@@ -52,6 +52,10 @@ public class CodeExample {
 			}
 		}
 		
+		public void removeCategory(Category toUnlink) {
+			categories.remove(toUnlink);
+		}
+		
 		/**
 		 * @return the iD
 		 */
