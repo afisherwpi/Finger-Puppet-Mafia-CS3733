@@ -83,14 +83,16 @@ public class AddController {
 				public void actionPerformed(ActionEvent arg0) {
 					List<String> dummy = new ArrayList<String>();
 					dummy.add(view.getComboAddCategory().getSelectedItem().toString());
-					db.addCodeExample(view.getAddTitle().getText(), 
+					if( db.addCodeExample(view.getAddTitle().getText(), 
 										view.getTfAddDescription().getText(), 
 										view.getAddCode().getText(), 
 										view.getAddProgrammingLanguage().getSelectedItem().toString(),
 										dummy,
-										view.getAddPublic().isSelected());
+										view.getAddPublic().isSelected()) == 2){
+						view.addNameNotUnique();
+					} else {
 					splitController.addSaveButtonPressed(view.getAddTitle().getText());
-					
+					}	
 				}
 			});
 			

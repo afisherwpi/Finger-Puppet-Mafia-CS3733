@@ -1,5 +1,6 @@
 package DesktopViews;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.util.List;
@@ -171,6 +172,13 @@ public class AddView {
 	public void makeCategoryCombo(List<String> s) {
 		comboAddCategory = new JComboBox(s.toArray());
 		addCategoryPanel.add(comboAddCategory);
+	}
+
+	public void addNameNotUnique() {
+		JLabel nameNotUnique = new JLabel("That title is not Unique to your code examples!");
+		nameNotUnique.setForeground(Color.red);
+		addPanel.add(nameNotUnique, addPanel.getComponentCount() - 1);
+		addPanel.revalidate();
 	}
 
 }

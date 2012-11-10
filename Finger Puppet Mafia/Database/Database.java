@@ -185,17 +185,19 @@ public class Database {
 	}
 	
 	/**addCodeExample - Add a new code example to the database
+	 * 
 	 * @param title - The title of the new code example
 	 * @param description - The text description of the new code example
 	 * @param code - code of the new code example
 	 * @param language - Language that the code example is written in
 	 * @param categories - a List of category names (Strings)
 	 * @param isPublic - boolean declaring whether or not the example is public
-	 * @return true if the code example was successfully added
+	 * @return 0 if successful, 1 if no category is found, 2 if name is not unique
 	 * 
 	 * @author John Pham
+	 * 
 	 */
-	public boolean addCodeExample(String title, String description, String code, 
+	public int addCodeExample(String title, String description, String code, 
 										String language, final List<String> categories, boolean isPublic) {
 		
 		// Converting the string names into actual Category objects
@@ -207,9 +209,13 @@ public class Database {
 		// Stop operation if a category does not exist
 		if (categoryObjs.size() == 0) {
 			System.out.println("No categories found.");
-			return false;
+			return 1;
 		}
 		
+		if (getExamplesByFieldValue("title", title).size() != 0){
+			System.out.println("Example name not unique");
+			return 2;
+		}
 		// Create the CodeExample object using given information
 		Date currentDate = new Date();
 		CodeExample example = new CodeExample(1, 1, title, description, code, currentDate, currentDate, 
@@ -221,7 +227,7 @@ public class Database {
 		}
 		
 		System.out.println("New code example added.");
-		return true;
+		return 0;
 	}
 	
 	/**getCategories - Gets a list of Category objects based on a list of category names
